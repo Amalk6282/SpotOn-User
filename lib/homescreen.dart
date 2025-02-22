@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spot_on_users/bottom_navbaritem.dart';
 import 'package:spot_on_users/home.dart';
+import 'package:spot_on_users/pofile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,9 +37,7 @@ class _HomeScreenState extends State<HomeScreen>
             Container(
               color: Colors.green,
             ),
-            Container(
-              color: Colors.blue,
-            ),
+            Profile()
           ],
         ),
         bottomNavigationBar: Material(

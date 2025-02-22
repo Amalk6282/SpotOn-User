@@ -1,0 +1,2 @@
+C:/Users/Amal.k/OneDrive/Desktop/SpotOn/spot_on_users/android/app/.cxx/Debug/1l346a2c/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Amal.k/OneDrive/Desktop/SpotOn/spot_on_users/android/app/.cxx/Debug/1l346a2c/armeabi-v7a/CMakeFiles/rebuild_cache.dir
