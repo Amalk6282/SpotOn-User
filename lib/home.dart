@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spot_on_users/custom_search.dart';
 import 'package:spot_on_users/custombutton.dart';
+import 'package:spot_on_users/notification__screen.dart';
+import 'package:spot_on_users/parking_slot_booking.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -16,7 +18,9 @@ class Home extends StatelessWidget {
             Row(
               children: [
                 IconCard(
-                    iconData: Icons.location_on_outlined, color: Colors.white),
+                  iconData: Icons.location_on_outlined,
+                  onTap: () {},
+                ),
                 Spacer(),
                 Text(
                   'Santa Ana,illions 85486',
@@ -24,8 +28,16 @@ class Home extends StatelessWidget {
                 ),
                 Spacer(),
                 IconCard(
-                    iconData: Icons.notifications_none_outlined,
-                    color: Colors.white),
+                  iconData: Icons.notifications_none_outlined,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationPage(),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
             SizedBox(
@@ -47,38 +59,53 @@ class Home extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: [
                   LocationCard(
-                      color: Colors.yellow,
-                      src:
-                          'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
-                      label: 'Illinios Center',
-                      label1: '111 E Wacker Dr,Chicago'),
+                    color: Colors.yellow,
+                    src:
+                        'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
+                    label: 'Illinios Center',
+                    label1: '111 E Wacker Dr,Chicago',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ParkingSlotBooking(),
+                        ),
+                      );
+                    },
+                  ),
                   SizedBox(
                     width: 15,
                   ),
                   LocationCard(
-                      color: Colors.yellow,
-                      src:
-                          'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
-                      label: 'Illinios Center',
-                      label1: '111 E Wacker Dr,Chicago'),
+                    color: Colors.greenAccent,
+                    src:
+                        'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
+                    label: 'LULU Mall',
+                    label1: 'Edappally,Ernakulam',
+                    onTap: () {},
+                  ),
                   SizedBox(
                     width: 15,
                   ),
                   LocationCard(
-                      color: Colors.yellow,
-                      src:
-                          'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
-                      label: 'Illinios Center',
-                      label1: '111 E Wacker Dr,Chicago'),
+                    color: Colors.blue,
+                    src:
+                        'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
+                    label: ' Secura Centre',
+                    label1: 'Thazhe Chovva,Kannur',
+                    onTap: () {},
+                  ),
                   SizedBox(
                     width: 15,
                   ),
                   LocationCard(
-                      color: Colors.yellow,
-                      src:
-                          'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
-                      label: 'Illinios Center',
-                      label1: '111 E Wacker Dr,Chicago'),
+                    color: Colors.tealAccent,
+                    src:
+                        'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg',
+                    label: 'Capital Mall',
+                    label1: 'Thana,Kannur',
+                    onTap: () {},
+                  ),
                   SizedBox(
                     width: 15,
                   ),
@@ -97,6 +124,7 @@ class LocationCard extends StatelessWidget {
   final String src;
   final String label;
   final String label1;
+  final Function() onTap;
 
   const LocationCard({
     super.key,
@@ -104,74 +132,100 @@ class LocationCard extends StatelessWidget {
     required this.src,
     required this.label,
     required this.label1,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      foregroundDecoration: BoxDecoration(
-          border: Border.all(color: Colors.yellow),
-          borderRadius: BorderRadius.all(Radius.circular(20))),
       decoration: BoxDecoration(
-          color: Colors.yellow,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+        color: color,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
       height: 180,
       width: 240,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 200,
-              height: 100,
-              child: Image.network(
-                src,
-              ),
-            ),
-            Spacer(),
-            Row(children: [
-              Column(children: [
-                Text(
-                  label,
-                  style: TextStyle(fontSize: 18),
+      child: Stack(
+        alignment: Alignment.bottomRight,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 200,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              'https://t4.ftcdn.net/jpg/12/14/07/63/240_F_1214076346_IP3vmKVr1c5M6FVxPktpLRj7k7pyLPqn.jpg'))),
                 ),
-                Text(label1),
-              ]),
-              Spacer(),
-              IconCard(iconData: Icons.next_plan, color: Colors.black)
-            ])
-          ],
-        ),
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          label,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(label1),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          IconCard(
+            iconData: Icons.arrow_forward,
+            color: Color(0xFF212121),
+            onTap: onTap,
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(0),
+                topLeft: Radius.circular(40),
+                bottomLeft: Radius.circular(0),
+                bottomRight: Radius.circular(0)),
+          )
+        ],
       ),
     );
   }
 }
 
 class IconCard extends StatelessWidget {
+  final Function() onTap;
   final IconData iconData;
   final Color color;
+  final BorderRadiusGeometry? borderRadius;
   const IconCard({
     super.key,
     required this.iconData,
-    required this.color,
+    this.color = Colors.black,
+    required this.onTap,
+    this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 60,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.all(Radius.circular(90)),
-      ),
-      child: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            iconData,
-            color: Colors.white,
-          )),
-    );
+    return IconButton(
+        onPressed: onTap,
+        padding: EdgeInsets.all(20),
+        style: IconButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: borderRadius != null
+                    ? borderRadius!
+                    : BorderRadius.circular(90)),
+            backgroundColor: color),
+        icon: Icon(
+          iconData,
+          color: Colors.white,
+        ));
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spot_on_users/bottom_navbaritem.dart';
 import 'package:spot_on_users/home.dart';
+import 'package:spot_on_users/my_parkings_screen.dart';
+import 'package:spot_on_users/parking_slot_booking.dart';
 import 'package:spot_on_users/pofile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -31,13 +33,9 @@ class _HomeScreenState extends State<HomeScreen>
           controller: _tabController,
           children: [
             Home(),
-            Container(
-              color: Colors.red,
-            ),
-            Container(
-              color: Colors.green,
-            ),
-            Profile()
+            ParkingSlotBooking(),
+            ParkingScreen(),
+            ProfileScreen()
           ],
         ),
         bottomNavigationBar: Material(
