@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spot_on_users/bootingscreen.dart';
-import 'package:spot_on_users/get_startedpage.dart';
-import 'package:spot_on_users/homescreen.dart';
-import 'package:spot_on_users/signup.dart';
 import 'package:spot_on_users/splashscreen.dart';
 
 void main() {

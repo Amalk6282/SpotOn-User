@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spot_on_users/edit_profile.dart';
 
-import 'package:spot_on_users/homescreen.dart';
 import 'package:spot_on_users/notification__screen.dart';
 import 'package:spot_on_users/payment_details_screen.dart';
 import 'package:spot_on_users/settings.dart';
@@ -17,8 +16,8 @@ class ProfileScreen extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            const Color.fromARGB(228, 178, 10, 212)!,
-            const Color.fromARGB(255, 0, 0, 0)!,
+            const Color.fromARGB(228, 178, 10, 212),
+            const Color.fromARGB(255, 0, 0, 0),
           ],
         ),
       ),

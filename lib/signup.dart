@@ -322,23 +322,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Widget _buildSocialButton(String label) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: const Color(0xFF2A2A2A),
-        shape: BoxShape.circle,
-      ),
-      child: Center(
-        child: Text(
-          label,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
 }
